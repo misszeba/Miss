@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Couple Zone Shop</title>
+    
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="header glass">
+        <div class="top-bar">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="সার্চ করুন...">
+            </div>
+            <button id="layoutToggle" class="icon-btn">
+                <i id="layoutIcon" class="fas fa-th-large"></i>
+            </button>
+        </div>
+
+        <nav class="category-nav hide-scroll">
+            <div id="catList" class="cat-list-wrapper">
+                <button class="cat-btn active" data-id="all">সবগুলো</button>
+            </div>
+            <div class="sort-group">
+                <button id="sortToggleBtn" class="sort-btn" onclick="toggleSort()">
+                    <i id="sortIcon" class="fas fa-sort"></i> 
+                    <span id="sortText">দাম: সর্ট</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="productList" class="product-grid">
+            <div class="loading">
+                <i class="fas fa-circle-notch fa-spin"></i>
+                <p>লোডিং হচ্ছে...</p>
+            </div>
+        </div>
+    </main>
+
+    <div id="cartBar" class="cart-bar glass-dark">
+        <div class="cart-info">
+            <div class="cart-icon-wrap">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cartCount">0</span>
+            </div>
+            <div class="cart-text">
+                <span class="label">মোট খরচ</span>
+                <span id="totalAmount" class="amount">0 TK</span>
+            </div>
+        </div>
+        <button class="order-btn">
+            অর্ডার দিন <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <div id="customPopup" class="popup-overlay">
+        <div class="popup-content glass">
+            <span class="close-btn" onclick="closePopup()" style="color: #ff0000 !important;">&times;</span>
+            <div class="gallery-container" id="mainGalleryContainer">
+                <div class="swiper mySwiper2">
+                    <div class="swiper-wrapper" id="galleryTrackMain"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper" id="galleryTrackThumbs"></div>
+                </div>
+            </div>
+            <div class="popup-details">
+                <h3 id="popupTitle" class="detail-name"></h3>
+                <div id="popupPrice" class="detail-price"></div>
+                <div class="detail-divider"></div>
+                <p id="popupDesc" class="detail-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    
+    
+<script src="https://rawcdn.githack.com/nextapps-de/spotlight/0.7.8/dist/spotlight.bundle.js"></script>
+
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popup.js') }}"></script>
+
+</body>
+</html>
+
